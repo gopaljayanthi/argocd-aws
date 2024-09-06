@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-server
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  project: default
+  sources:
+  - chart: metrics-server
+    #helm:
+     # valueFiles:
+      #- $values/argo-cd/values.yaml
+    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    targetRevision: 3.12.1
+  #- ref: values
+  #  repoURL: https://github.com/gopaljayanthi/argocd-aws.git
+  #  targetRevision: master
+  syncPolicy:
+    automated: {}
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
