@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: ingress-nginx
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: ingress-nginx
     server: 'https://kubernetes.default.svc'
   project: default
   sources:
-  - chart: argo-cd
+  - chart: ingress-nginx
     #helm:
      # valueFiles:
       #- $values/argo-cd/values.yaml
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 6.7.3
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 4.11.2
   #- ref: values
   #  repoURL: https://github.com/gopaljayanthi/argocd-aws.git
   #  targetRevision: master
