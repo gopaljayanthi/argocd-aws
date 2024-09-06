@@ -1,20 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx
+  name: cert-manager
   namespace: argocd
 spec:
   destination:
-    namespace: ingress-nginx
+    namespace: cert-manager
     server: 'https://kubernetes.default.svc'
   project: default
   sources:
-  - chart: ingress-nginx
-    #helm:
+  - chart: cert-manager
+    helm:
+     parameters:
+     - name: crds.enabled
+       value: "true"
      # valueFiles:
       #- $values/argo-cd/values.yaml
-    repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.11.2
+    repoURL: https://charts.jetstack.io
+    targetRevision: v1.15.3
   #- ref: values
   #  repoURL: https://github.com/gopaljayanthi/argocd-aws.git
   #  targetRevision: master
