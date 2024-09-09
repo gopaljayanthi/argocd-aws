@@ -13,6 +13,6 @@ spec:
     repoURL: https://github.com/gopaljayanthi/argocd-aws.git
     targetRevision: master
   syncPolicy:
-    automated: {}
+    automated:
       prune: true
       selfHeal: true

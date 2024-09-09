@@ -16,20 +16,20 @@ spec:
     type: AllAtOnce
   template:
     metadata:
-      name: {{name}}
+      name: '{{.name}}'
     spec:
       project: default
       sources:
-        - repoURL: {{repoURL}}
-          targetRevision: {{targetRevision}}
-          chart: {{chart}}
-          path: {{path}}
+        - repoURL: '{{.repoURL}}'
+          targetRevision: '{{.targetRevision}}'
+          chart: '{{.chart}}'
+          path: '{{.path}}'
           helm:
-            releaseName: {{name}}
+            releaseName: '{{.name}}'
             passCredentials: true
             valueFiles:
-              - {{ "$values/{{valuesPath}}" }}
-              - {{ "$valueOverlay/{{valuesOverlayPath}}" }}
+              - $values/'{{.valuesPath}}'
+              - $valueOverlay/'{{.valuesOverlayPath}}'
         - repoURL: https://github.com/gopaljayanthi/argocd-aws.git
           targetRevision: master
           ref: values
@@ -38,7 +38,7 @@ spec:
           ref: valueOverlay
       destination:
         name: in-cluster
-        namespace: {{namespace}}
+        namespace: '{{.namespace}}'
       syncPolicy:
         automated:
           prune: true
