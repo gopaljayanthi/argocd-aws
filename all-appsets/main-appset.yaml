@@ -4,6 +4,8 @@ metadata:
   name: all-appset
   namespace: argocd
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
         repoURL: https://github.com/gopaljayanthi/argocd-aws.git
@@ -16,7 +18,7 @@ spec:
     type: AllAtOnce
   template:
     metadata:
-      name: {{.name}}
+      name: '{{.name}}'
     spec:
       project: default
       sources:
