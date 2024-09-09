@@ -1,5 +1,4 @@
-global:
-  domain: argocd.awsjpmc.opsmx.org
+server:
   ingress:
     enabled: true
     annotations: 
