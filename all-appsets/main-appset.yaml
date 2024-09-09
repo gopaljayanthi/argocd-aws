@@ -1,0 +1,67 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: all-appset
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/gopaljayanthi/argocd-aws.git
+        revision: master
+        files:
+        - path: "configs/**/config.json"
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  strategy:
+    type: AllAtOnce
+  template:
+    metadata:
+      name: {{name}}
+    spec:
+      project: default
+      sources:
+        - repoURL: {{repoURL}}
+          targetRevision: {{targetRevision}}
+          chart: {{chart}}
+          path: {{path}}
+          helm:
+            releaseName: {{name}}
+            passCredentials: true
+            valueFiles:
+              - {{ "$values/{{valuesPath}}" }}
+              - {{ "$valueOverlay/{{valuesOverlayPath}}" }}
+        - repoURL: https://github.com/gopaljayanthi/argocd-aws.git
+          targetRevision: master
+          ref: values
+        - repoURL: https://github.com/gopaljayanthi/argocd-aws.git
+          targetRevision: master
+          ref: valueOverlay
+      destination:
+        name: in-cluster
+        namespace: {{namespace}}
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
+          #- PrunePropagationPolicy=orphan
+        retry:
+          limit: 10
+          backoff:
+            duration: 60s
+            factor: 2
+            maxDuration: 2m
+      ignoreDifferences:
+        - group: storage.k8s.io
+          jsonPointers:
+            - /spec/seLinuxMount
+          kind: CSIDriver
+        - jsonPointers:
+            - /spec/storageClassName
+          kind: PersistentVolumeClaim
+        # - group: apps
+        #   kind: StatefulSet
+        #   jsonPointers:
+        #     - /spec/volumeClaimTemplates/??

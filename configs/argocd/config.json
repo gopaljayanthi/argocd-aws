@@ -1,0 +1,10 @@
+{
+"repoURL": "https://argoproj.github.io/argo-helm",
+"targetRevision": "6.7.3",
+"chart": "argo-cd",
+"path": "",
+"name": "argocd",
+"valuesPath": "configs/argocd/values.yaml",
+"valuesOverlayPath": "configs/argocd/values-overlay.yaml",
+"namespace": "argocd"
+}
