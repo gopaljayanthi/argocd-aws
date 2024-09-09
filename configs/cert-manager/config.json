@@ -1,0 +1,10 @@
+{
+"repoURL": "https://charts.jetstack.io",
+"targetRevision": "v1.15.3",
+"chart": "cert-manager",
+"path": "",
+"name": "cert-manager",
+"valuesPath": "configs/cert-manager/values.yaml",
+"valuesOverlayPath": "configs/cert-manager/values-overlay.yaml",
+"namespace": "cert-manager"
+}
