@@ -30,8 +30,8 @@ spec:
             releaseName: '{{.name}}'
             passCredentials: true
             valueFiles:
-              - $values/'{{.valuesPath}}'
-              - $valueOverlay/'{{.valuesOverlayPath}}'
+              - "$values/{{.valuesPath}}"
+              - "$valueOverlay/{{.valuesOverlayPath}}"
         - repoURL: https://github.com/gopaljayanthi/argocd-aws.git
           targetRevision: master
           ref: values
@@ -50,7 +50,7 @@ spec:
           - ServerSideApply=true
           #- PrunePropagationPolicy=orphan
         retry:
-          limit: 10
+          limit: 1
           backoff:
             duration: 60s
             factor: 2
