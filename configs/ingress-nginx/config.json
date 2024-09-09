@@ -1,0 +1,10 @@
+{
+"repoURL": "https://kubernetes.github.io/ingress-nginx",
+"targetRevision": "4.11.2",
+"chart": "ingress-nginx",
+"path": "",
+"name": "ingress-nginx",
+"valuesPath": "configs/ingress-nginx/values.yaml",
+"valuesOverlayPath": "configs/ingress-nginx/values-overlay.yaml",
+"namespace": "ingress-nginx"
+}
