@@ -2,7 +2,7 @@ global:
   domain: argocd.awsjpmc.opsmx.org
   ingress:
     enabled: true
-    annotations: {}
+    annotations: 
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       cert-manager.io/cluster-issuer: letsencrypt
