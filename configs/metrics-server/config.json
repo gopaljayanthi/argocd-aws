@@ -1,0 +1,10 @@
+{
+"repoURL": "https://kubernetes-sigs.github.io/metrics-server/",
+"targetRevision": "3.12.1",
+"chart": "metrics-server",
+"path": "",
+"name": "metrics-server",
+"valuesPath": "configs/metrics-server/values.yaml",
+"valuesOverlayPath": "configs/metrics-server/values-overlay.yaml",
+"namespace": "metrics-server"
+}
