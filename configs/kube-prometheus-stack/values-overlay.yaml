@@ -6,4 +6,7 @@ prometheus:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - prometheus.awsjpmc.opsmx.org
-    tls: true
+    tls:
+    - hosts:
+        - prometheus.awsjpmc.opsmx.org
+      secretName: prometheus-tls
