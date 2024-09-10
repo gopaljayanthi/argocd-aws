@@ -1,6 +1,6 @@
 {
 "repoURL": "https://argoproj.github.io/argo-helm",
-"targetRevision": "6.7.3",
+"targetRevision": "7.5.2",
 "chart": "argo-cd",
 "path": "",
 "name": "argocd",
