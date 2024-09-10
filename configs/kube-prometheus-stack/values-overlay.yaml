@@ -11,3 +11,16 @@ prometheus:
     - hosts:
         - prometheus.awsjpmc.opsmx.org
       secretName: prometheus-tls
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - grafana.awsjpmc.opsmx.org
+    tls:
+    - hosts:
+        - grafana.awsjpmc.opsmx.org
+      secretName: grafana-tls
