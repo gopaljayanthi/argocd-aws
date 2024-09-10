@@ -12,6 +12,14 @@ server:
     pathType: Prefix
     tls: true
 
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 30s
+      additionalLabels: 
+        release: kube-prometheus-stack
+
   autoscaling:
     enabled: true
     minReplicas: 2
@@ -40,8 +48,33 @@ repoServer:
     limits:
       memory: "256Mi"
       cpu: "500m"
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 30s
+      additionalLabels: 
+        release: kube-prometheus-stack
+
 
 applicationSet:
   replicas: 2
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 30s
+      additionalLabels: 
+        release: kube-prometheus-stack
+
+dex:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      interval: 30s
+      additionalLabels: 
+        release: kube-prometheus-stack
+
 
 
