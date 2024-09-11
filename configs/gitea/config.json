@@ -1,0 +1,10 @@
+{
+"repoURL": "https://dl.gitea.com/charts",
+"targetRevision": "10.4.0",
+"chart": "gitea",
+"path": "",
+"name": "gitea",
+"valuesPath": "configs/gitea/values.yaml",
+"valuesOverlayPath": "configs/gitea/values-overlay.yaml",
+"namespace": "gitea"
+}
