@@ -17,3 +17,12 @@ ingress:
 global:
   storageClass: gp2
 
+postgresql-ha:
+  pgpool:
+    persistence:
+      storageClass: gp2
+  postgresql:
+    persistence:
+      storageClass: gp2
+
+
