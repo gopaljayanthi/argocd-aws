@@ -1,3 +1,14 @@
+applicationSet:
+  extraArgs:
+    - --enable-progressive-syncs
+  extraContainers:
+    - name: argocd-applicationset-controller
+      args:
+        - /usr/local/bin/argocd-applicationset-controller
+        - --metrics-addr=:8080
+        - --probe-addr=:8081
+        - --webhook-addr=:7000
+        - --prograsive-sync-enable=true
 configs:
   params:
      applicationsetcontroller.enable.progressive.syncs: "true"
