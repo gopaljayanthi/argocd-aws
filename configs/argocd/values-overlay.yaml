@@ -1,7 +1,3 @@
-applicationset:
-  controller:
-    extraArgs:
-      - --enable-progressive-syncs
 configs:
   params:
      applicationsetcontroller.enable.progressive.syncs: "true"
