@@ -1,7 +1,7 @@
 configs:
   params:
      applicationsetcontroller.enable.progressive.syncs: "true"
-     applicationsetcontroller.enable.leader.election: "true"
+     applicationsetcontroller.enable.leader.election: "false"
 
 server:
   ingress:
