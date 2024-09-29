@@ -1,6 +1,8 @@
-# configs:
-#   params:
-#      applicationsetcontroller.enable.progressive.syncs: "true"
+configs:
+  params:
+     #applicationsetcontroller.enable.progressive.syncs: "true"
+     applicationsetcontroller.enable.leader.election: "false"
+
 server:
   ingress:
     enabled: true
