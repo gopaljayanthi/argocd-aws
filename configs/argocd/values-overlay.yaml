@@ -1,6 +1,6 @@
 configs:
   params:
-     applicationsetcontroller.enable.progressive.syncs: "true"
+     applicationsetcontroller.enable.progressive.syncs: "false"
      applicationsetcontroller.enable.leader.election: "false"
 
 server:
