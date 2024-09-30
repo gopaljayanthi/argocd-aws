@@ -1,6 +1,6 @@
 configs:
   params:
-     applicationsetcontroller.enable.progressive.syncs: "false"
+     applicationsetcontroller.enable.progressive.syncs: "true"
 server:
   ingress:
     enabled: true
