@@ -1,4 +1,6 @@
 controller:
   config:
     ssl-passthrough: "true"
+  extraArgs:
+    enable-ssl-passthrough: ""
 
